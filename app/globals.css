@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Обновляю цветовую палитру на темно-зеленую тему */
+  --background: oklch(0.08 0.05 140); /* Очень темный зеленый */
+  --foreground: oklch(0.95 0.02 120); /* Светло-зеленый текст */
+  --card: oklch(0.12 0.08 135); /* Темная карточка с зеленым оттенком */
+  --card-foreground: oklch(0.92 0.03 120);
+  --popover: oklch(0.12 0.08 135);
+  --popover-foreground: oklch(0.92 0.03 120);
+  --primary: oklch(0.65 0.25 140); /* Яркий зеленый */
+  --primary-foreground: oklch(0.98 0.01 120);
+  --secondary: oklch(0.55 0.2 160); /* Сине-зеленый акцент */
+  --secondary-foreground: oklch(0.98 0.01 120);
+  --muted: oklch(0.15 0.06 135);
+  --muted-foreground: oklch(0.75 0.05 120);
+  --accent: oklch(0.7 0.3 110); /* Желто-зеленый акцент */
+  --accent-foreground: oklch(0.98 0.01 120);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.2 0.08 135); /* Темная граница с зеленым */
+  --input: oklch(0.15 0.06 135);
+  --ring: oklch(0.65 0.25 140 / 0.5);
+  --chart-1: oklch(0.65 0.25 140);
+  --chart-2: oklch(0.55 0.2 160);
+  --chart-3: oklch(0.7 0.3 110);
+  --chart-4: oklch(0.6 0.22 180);
+  --chart-5: oklch(0.75 0.28 90);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.1 0.06 135);
+  --sidebar-foreground: oklch(0.92 0.03 120);
+  --sidebar-primary: oklch(0.65 0.25 140);
+  --sidebar-primary-foreground: oklch(0.98 0.01 120);
+  --sidebar-accent: oklch(0.15 0.06 135);
+  --sidebar-accent-foreground: oklch(0.92 0.03 120);
+  --sidebar-border: oklch(0.2 0.08 135);
+  --sidebar-ring: oklch(0.4 0.15 135);
+}
+
+.dark {
+  /* Обновляю темную тему под зеленую палитру */
+  --background: oklch(0.06 0.08 140);
+  --foreground: oklch(0.98 0.01 120);
+  --card: oklch(0.08 0.1 135);
+  --card-foreground: oklch(0.95 0.02 120);
+  --popover: oklch(0.08 0.1 135);
+  --popover-foreground: oklch(0.95 0.02 120);
+  --primary: oklch(0.7 0.3 140);
+  --primary-foreground: oklch(0.06 0.08 140);
+  --secondary: oklch(0.18 0.1 135);
+  --secondary-foreground: oklch(0.95 0.02 120);
+  --muted: oklch(0.18 0.1 135);
+  --muted-foreground: oklch(0.7 0.08 120);
+  --accent: oklch(0.75 0.35 110);
+  --accent-foreground: oklch(0.06 0.08 140);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.95 0.02 120);
+  --border: oklch(0.18 0.1 135);
+  --input: oklch(0.18 0.1 135);
+  --ring: oklch(0.7 0.3 140 / 0.5);
+  --chart-1: oklch(0.7 0.3 140);
+  --chart-2: oklch(0.6 0.25 160);
+  --chart-3: oklch(0.75 0.35 110);
+  --chart-4: oklch(0.65 0.28 180);
+  --chart-5: oklch(0.8 0.32 90);
+  --sidebar: oklch(0.08 0.1 135);
+  --sidebar-foreground: oklch(0.95 0.02 120);
+  --sidebar-primary: oklch(0.7 0.3 140);
+  --sidebar-primary-foreground: oklch(0.06 0.08 140);
+  --sidebar-accent: oklch(0.18 0.1 135);
+  --sidebar-accent-foreground: oklch(0.95 0.02 120);
+  --sidebar-border: oklch(0.18 0.1 135);
+  --sidebar-ring: oklch(0.4 0.15 135);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Добавляю кастомные анимации для QA-тематики */
+@keyframes bug-hunt {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes test-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes code-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.bug-hunt {
+  animation: bug-hunt 3s ease-in-out infinite;
+}
+
+.test-pulse {
+  animation: test-pulse 2s ease-in-out infinite;
+}
+
+.code-scan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Обновляю градиент сканирования под зеленую палитру */
+  background: linear-gradient(90deg, transparent, oklch(0.65 0.25 140 / 0.3), transparent);
+  animation: code-scan 3s ease-in-out infinite;
+}
+
+/* Добавляю градиентный переход от зеленой к сине-фиолетовой теме */
+.theme-transition {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.08 0.05 140) 0% /* Темно-зеленый */,
+    oklch(0.08 0.05 140) 40% /* Зеленый продолжается */,
+    oklch(0.06 0.08 260) 70% /* Переход к сине-фиолетовому */,
+    oklch(0.04 0.1 280) 100% /* Темно-сине-фиолетовый */
+  );
+}
+
+/* Стили для зеленой секции (hero) */
+.green-section {
+  --section-background: oklch(0.08 0.05 140);
+  --section-foreground: oklch(0.95 0.02 120);
+  --section-primary: oklch(0.65 0.25 140);
+  --section-accent: oklch(0.7 0.3 110);
+  --section-border: oklch(0.2 0.08 135);
+  --section-card: oklch(0.12 0.08 135);
+}
+
+/* Стили для сине-фиолетовой секции */
+.purple-section {
+  --section-background: oklch(0.04 0.1 280);
+  --section-foreground: oklch(0.95 0.02 280);
+  --section-primary: oklch(0.6 0.25 270);
+  --section-accent: oklch(0.7 0.3 260);
+  --section-border: oklch(0.15 0.08 275);
+  --section-card: oklch(0.08 0.1 275);
+}
+
+/* Переходная секция */
+.transition-section {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.08 0.05 140 / 0.8) 0%,
+    oklch(0.06 0.08 200 / 0.9) 50%,
+    oklch(0.04 0.1 280 / 1) 100%
+  );
+  --section-background: transparent;
+  --section-foreground: oklch(0.95 0.02 200);
+  --section-primary: oklch(0.65 0.25 200);
+  --section-accent: oklch(0.7 0.3 180);
+  --section-border: oklch(0.18 0.08 200);
+  --section-card: oklch(0.1 0.08 200 / 0.8);
+}
