@@ -210,4 +210,4 @@ test.describe('Sergey QA Landing Page - Next.js Tests', () => {
     }
   });
  
-});
+}); 
