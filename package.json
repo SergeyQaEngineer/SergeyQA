@@ -8,7 +8,6 @@
     "lint": "next lint",
     "start": "next start",
     "test:e2e": "playwright test e2e/landing.spec.ts",
-    "test:api": "playwright test tests/api.spec.ts",
     "test:all": "playwright test",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
