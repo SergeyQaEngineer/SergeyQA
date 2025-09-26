@@ -26,7 +26,7 @@ export function TestCaseTimeline() {
     {
       year: "09.2021-01.2023",
       title: "Junior QA Engineer",
-      company: 'ООО "Визера"',
+      company: 'ООО "Визер"',
       description: "Тестирование платежной системы (карты для проезда, лояльность)",
       achievements: ["Освоение мобильного тестирования", "Написал 200+ тест-кейсов", "Тестирование верстки"],
       status: "completed",
