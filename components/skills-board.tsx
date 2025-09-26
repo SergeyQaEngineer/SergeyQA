@@ -19,27 +19,27 @@ export function SkillsBoard() {
       items: [
         {
           name: "Функциональное тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "API тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Интеграционное тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Smoke тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Исследовательское тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Регрессионное тестирование",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
       ],
     },
@@ -48,43 +48,43 @@ export function SkillsBoard() {
       items: [
         {
           name: "Postman",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Swagger",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "DevTools",
-          description: "описание"
+          description: "тут будет ссылка или описаниее"
         },
         {
           name: "Charles",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Fiddler",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Kibana",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Android Studio+ADB",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Kafka",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "PostgreSQL",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "ClickHouse",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
       ],
     },
@@ -93,55 +93,64 @@ export function SkillsBoard() {
       items: [
         {
           name: "Составление тест-кейсов",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Анализ требований",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Поиск и документирование багов",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Оптимизация чек-листа",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Работа в команде",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Внимание к деталям",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
         {
           name: "Аналитическое мышление",
-          description: "описание"
+          description: "тут будет ссылка или описание"
         },
       ],
     },
   ]
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4">
-      <div className="container mx-auto">
+    <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden">
+      {/* Фоновая сетка как в HeroSection */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
+          {Array.from({ length: 144 }).map((_, i) => (
+            <div key={i} className="border border-primary/20" />
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Навыки и компетенции</h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Навыки и компетенции</h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Профессиональные навыки и инструменты для обеспечения качества продукта
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto"> {/* Увеличил max-w до 7xl */}
-          {/* Тестирование - занимает 1 колонку на десктопе */}
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Тестирование - занимает 3 колонки из 12 */}
           <div
             key={skills[0].category}
-            className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-1"
+            className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-3"
           >
-            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary">{skills[0].category}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-6 text-primary">{skills[0].category}</h3>
             
-            <div className="flex flex-col gap-2">
+            <div className="space-y-3">
               {skills[0].items.map((skill) => {
                 const itemKey = `${skills[0].category}-${skill.name}`
                 const isOpen = openItems[itemKey]
@@ -151,18 +160,18 @@ export function SkillsBoard() {
                     key={skill.name}
                     className="relative"
                   >
-                    <div
-                      className="flex items-center justify-between gap-3 p-2 sm:p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[60px] sm:min-h-[50px]" // Добавил минимальную высоту
+                    <button
+                      className="flex items-center justify-between w-full gap-3 p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[70px] text-left"
                       onClick={() => toggleItem(skills[0].category, skill.name)}
                     >
                       <div className="flex items-center gap-3 min-w-0 flex-1">
-                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
-                        <span className="text-lg sm:text-base font-medium break-words whitespace-normal text-left flex-1"> {/* Убрал truncate, добавил перенос */}
+                        <div className="w-3 h-3 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
+                        <span className="text-base sm:text-lg font-semibold leading-tight break-words whitespace-normal flex-1 text-left">
                           {skill.name}
                         </span>
                       </div>
                       <svg
-                        className={`w-4 h-4 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
+                        className={`w-5 h-5 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
@@ -171,7 +180,7 @@ export function SkillsBoard() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
+                    </button>
                     
                     <div
                       className="accordion-content"
@@ -181,8 +190,8 @@ export function SkillsBoard() {
                         opacity: isOpen ? 1 : 0
                       }}
                     >
-                      <div className="pl-5 pr-2 pb-2">
-                        <p className="text-sm text-muted-foreground mt-1 bg-muted/30 p-2 rounded-lg"> {/* Исправил text-xm на text-sm */}
+                      <div className="pl-6 pr-3 pb-3">
+                        <p className="text-sm text-muted-foreground mt-2 bg-muted/40 p-3 rounded-lg">
                           {skill.description}
                         </p>
                       </div>
@@ -193,14 +202,14 @@ export function SkillsBoard() {
             </div>
           </div>
 
-          {/* Инструменты - занимает 2 колонки на десктопе */}
+          {/* Инструменты - занимает 6 колонок из 12 */}
           <div
             key={skills[1].category}
-            className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-2"
+            className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-6"
           >
-            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary">{skills[1].category}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-6 text-primary">{skills[1].category}</h3>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {skills[1].items.map((skill) => {
                 const itemKey = `${skills[1].category}-${skill.name}`
                 const isOpen = openItems[itemKey]
@@ -210,18 +219,18 @@ export function SkillsBoard() {
                     key={skill.name}
                     className="relative"
                   >
-                    <div
-                      className="flex items-center justify-between gap-3 p-2 sm:p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[60px] sm:min-h-[50px]" // Добавил минимальную высоту
+                    <button
+                      className="flex items-center justify-between w-full gap-3 p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[70px] text-left"
                       onClick={() => toggleItem(skills[1].category, skill.name)}
                     >
                       <div className="flex items-center gap-3 min-w-0 flex-1">
-                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
-                        <span className="text-lg sm:text-base font-medium break-words whitespace-normal text-left flex-1"> {/* Убрал truncate, добавил перенос */}
+                        <div className="w-3 h-3 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
+                        <span className="text-base sm:text-lg font-semibold leading-tight break-words whitespace-normal flex-1 text-left">
                           {skill.name}
                         </span>
                       </div>
                       <svg
-                        className={`w-4 h-4 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
+                        className={`w-5 h-5 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
@@ -230,7 +239,7 @@ export function SkillsBoard() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
+                    </button>
                     
                     <div
                       className="accordion-content"
@@ -240,8 +249,8 @@ export function SkillsBoard() {
                         opacity: isOpen ? 1 : 0
                       }}
                     >
-                      <div className="pl-5 pr-2 pb-2">
-                        <p className="text-sm text-muted-foreground mt-1 bg-muted/30 p-2 rounded-lg"> {/* Исправил text-xm на text-sm */}
+                      <div className="pl-6 pr-3 pb-3">
+                        <p className="text-sm text-muted-foreground mt-2 bg-muted/40 p-3 rounded-lg">
                           {skill.description}
                         </p>
                       </div>
@@ -252,14 +261,14 @@ export function SkillsBoard() {
             </div>
           </div>
 
-          {/* Навыки - занимает 1 колонку на десктопе */}
+          {/* Навыки - занимает 3 колонки из 12 */}
           <div
             key={skills[2].category}
-            className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-1"
+            className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 lg:col-span-3"
           >
-            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary">{skills[2].category}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-5 sm:mb-6 text-primary">{skills[2].category}</h3>
             
-            <div className="flex flex-col gap-2">
+            <div className="space-y-3">
               {skills[2].items.map((skill) => {
                 const itemKey = `${skills[2].category}-${skill.name}`
                 const isOpen = openItems[itemKey]
@@ -269,18 +278,18 @@ export function SkillsBoard() {
                     key={skill.name}
                     className="relative"
                   >
-                    <div
-                      className="flex items-center justify-between gap-3 p-2 sm:p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[60px] sm:min-h-[50px]" // Добавил минимальную высоту
+                    <button
+                      className="flex items-center justify-between w-full gap-3 p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-green-500 hover:text-black group min-h-[70px] text-left"
                       onClick={() => toggleItem(skills[2].category, skill.name)}
                     >
                       <div className="flex items-center gap-3 min-w-0 flex-1">
-                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
-                        <span className="text-lg sm:text-base font-medium break-words whitespace-normal text-left flex-1"> {/* Убрал truncate, добавил перенос */}
+                        <div className="w-3 h-3 bg-primary rounded-full flex-shrink-0 transition-colors duration-300 group-hover:bg-black" />
+                        <span className="text-base sm:text-lg font-semibold leading-tight break-words whitespace-normal flex-1 text-left">
                           {skill.name}
                         </span>
                       </div>
                       <svg
-                        className={`w-4 h-4 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
+                        className={`w-5 h-5 transition-all duration-300 flex-shrink-0 group-hover:text-black ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
@@ -289,7 +298,7 @@ export function SkillsBoard() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
+                    </button>
                     
                     <div
                       className="accordion-content"
@@ -299,8 +308,8 @@ export function SkillsBoard() {
                         opacity: isOpen ? 1 : 0
                       }}
                     >
-                      <div className="pl-5 pr-2 pb-2">
-                        <p className="text-sm text-muted-foreground mt-1 bg-muted/30 p-2 rounded-lg"> {/* Исправил text-xm на text-sm */}
+                      <div className="pl-6 pr-3 pb-3">
+                        <p className="text-sm text-muted-foreground mt-2 bg-muted/40 p-3 rounded-lg">
                           {skill.description}
                         </p>
                       </div>
@@ -312,6 +321,12 @@ export function SkillsBoard() {
           </div>
         </div>
       </div>
+
+      {/* Плавающие элементы как в HeroSection */}
+      <div className="hidden sm:block absolute top-20 left-10 text-4xl opacity-20">🧪</div>
+      <div className="hidden sm:block absolute top-40 right-20 text-3xl opacity-20">✅</div>
+      <div className="hidden sm:block absolute bottom-32 left-20 text-3xl opacity-20">🔍</div>
+      <div className="hidden sm:block absolute bottom-20 right-10 text-4xl opacity-20">⚡</div>
     </section>
   )
 }
